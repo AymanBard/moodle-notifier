@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Étape 1 : Télécharger le dépôt
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    # Étape 2 : Installer Python et les dépendances
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -24,20 +26,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install selenium requests
 
-    - name: Download previous content
-      uses: actions/download-artifact@v3
-      with:
-        name: previous_content
-        path: ./previous_content.txt
-      continue-on-error: true  # Continue même si l'artifact n'existe pas
-
-    - name: Create empty previous content if not found
+    # Étape 3 : Vérifier si previous_content.txt existe et l'utiliser
+    - name: Ensure previous_content.txt exists
       run: |
         if [ ! -f ./previous_content.txt ]; then
-          echo "No previous content found. Creating an empty file."
+          echo "File previous_content.txt not found, creating an empty one."
           touch ./previous_content.txt
         fi
 
+    # Étape 4 : Exécuter le script Python
     - name: Run Moodle Notifier Script
       env:
         MOODLE_USERNAME: ${{ secrets.MOODLE_USERNAME }}
@@ -45,6 +42,7 @@ jobs:
         DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       run: python moodle_notifier.py
 
+    # Étape 5 : Mettre à jour le fichier previous_content.txt
     - name: Upload updated content
       uses: actions/upload-artifact@v3
       with:

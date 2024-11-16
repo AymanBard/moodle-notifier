@@ -2,8 +2,8 @@ name: Moodle Notifier
 
 on:
   schedule:
-    # Exécuter toutes les heures
-    - cron: "0 * * * *"
+    # Exécuter toutes les 30 minutes
+    - cron: "*/30 * * * *"
   workflow_dispatch:  # Permet de le lancer manuellement
 
 jobs:

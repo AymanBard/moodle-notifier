@@ -24,15 +24,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install selenium requests
 
-    - name: Debug environment (facultatif)
-      run: |
-        echo "MOODLE_USERNAME: $MOODLE_USERNAME"
-        echo "MOODLE_PASSWORD: $MOODLE_PASSWORD"
-        echo "DISCORD_WEBHOOK_URL: $DISCORD_WEBHOOK_URL"
-      env:
-        MOODLE_USERNAME: ${{ secrets.MOODLE_USERNAME }}
-        MOODLE_PASSWORD: ${{ secrets.MOODLE_PASSWORD }}
-        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    - name: Download previous content
+      uses: actions/download-artifact@v2
+      with:
+        name: previous_content
+        path: ./previous_content.txt
 
     - name: Run Moodle Notifier Script
       env:
@@ -40,3 +36,9 @@ jobs:
         MOODLE_PASSWORD: ${{ secrets.MOODLE_PASSWORD }}
         DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       run: python moodle_notifier.py
+
+    - name: Upload updated content
+      uses: actions/upload-artifact@v2
+      with:
+        name: previous_content
+        path: ./previous_content.txt

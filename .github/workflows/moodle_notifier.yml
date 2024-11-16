@@ -29,6 +29,14 @@ jobs:
       with:
         name: previous_content
         path: ./previous_content.txt
+      continue-on-error: true  # Continue même si l'artifact n'existe pas
+
+    - name: Create empty previous content if not found
+      run: |
+        if [ ! -f ./previous_content.txt ]; then
+          echo "No previous content found. Creating an empty file."
+          touch ./previous_content.txt
+        fi
 
     - name: Run Moodle Notifier Script
       env:

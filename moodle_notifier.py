@@ -49,16 +49,17 @@ try:
     except:
         content = "Section introuvable."
 
-    # Sauvegarder ou comparer le contenu avec la version précédente
+    # Charger le contenu précédent depuis le fichier
     try:
         with open("previous_content.txt", "r", encoding="utf-8") as file:
             previous_content = file.read()
     except FileNotFoundError:
+        print("Fichier précédent introuvable, création d'un nouveau.")
         previous_content = ""
 
     def send_discord_notification():
         data = {
-            "content": "La page Moodle que tu surveilles a changé ! Va vérifier les nouvelles informations. @everyone"
+            "content": "@everyone La page Moodle que tu surveilles a changé ! Va vérifier les nouvelles informations."
         }
         response = requests.post(webhook_url, json=data)
         if response.status_code == 204:

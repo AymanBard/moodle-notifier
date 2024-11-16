@@ -1,0 +1,35 @@
+<li id="section-4" class="section course-section main  clearfix
+                             hidden  
+                            " data-sectionid="4" data-sectionreturnid="0" data-for="section" data-id="307168" data-number="4" data-indexed="true">
+                    <div class="course-section-header d-flex" data-for="section_title" data-id="307168" data-number="4">
+                                
+                                        <div class="d-flex align-items-start position-relative">
+                                            <a role="button" data-toggle="collapse" href="#coursecontentcollapse4" id="collapssesection4" aria-expanded="true" aria-controls="coursecontentcollapse4" class="btn btn-icon mr-1 icons-collapse-expand justify-content-center
+                                                    stretched-link 
+                                                   " aria-label="Options du S6">
+                                            <span class="expanded-icon icon-no-margin p-2" title="Replier">
+                                                <i class="icon fa fa-chevron-down fa-fw " aria-hidden="true"></i>
+                                            </span>
+                                            <span class="collapsed-icon icon-no-margin p-2" title="Déplier">
+                                                <span class="dir-rtl-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"></i></span>
+                                                <span class="dir-ltr-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"></i></span>
+                                            </span>
+                                            </a>
+                                            <h3 class="sectionname course-content-item d-flex align-self-stretch align-items-center mb-0" id="sectionid-307168-title" data-for="section_title" data-id="307168" data-number="4">
+                                                Options du S6
+                                            </h3>
+                                        </div>
+                            <div data-region="sectionbadges" class="sectionbadges d-flex align-items-center">
+                                            <span class="badge badge-pill badge-secondary order-3">Non disponible</span>
+                            </div>
+                            </div>
+                            <div id="coursecontentcollapse4" class="content 
+                                    course-content-item-content collapse show
+                                ">
+                                <div class=" my-3" data-for="sectioninfo">
+                                        <div class="section_availability course-description-item">
+                                        </div>
+                            </div>
+                            
+                    </div>
+                </li>

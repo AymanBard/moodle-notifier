@@ -24,4 +24,8 @@ jobs:
         pip install selenium requests
 
     - name: Run Moodle Notifier Script
+      env:
+        MOODLE_USERNAME: ${{ secrets.MOODLE_USERNAME }}
+        MOODLE_PASSWORD: ${{ secrets.MOODLE_PASSWORD }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       run: python moodle_notifier.py

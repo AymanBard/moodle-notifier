@@ -59,7 +59,7 @@ try:
 
     def send_discord_notification():
         data = {
-            "content": "@everyone La page Moodle que tu surveilles a changé ! Va vérifier les nouvelles informations."
+            "content": "La page Moodle que tu surveilles a changé ! Va vérifier les nouvelles informations."
         }
         response = requests.post(webhook_url, json=data)
         if response.status_code == 204:
